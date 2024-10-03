@@ -15,7 +15,7 @@
           "data": {
             "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/StudentsPerKmSquared.csv"
           },
-          "key": "State ",
+          "key": "State",
           "fields": ["Log10 Students per km squared (2022)"]
         }
       }
