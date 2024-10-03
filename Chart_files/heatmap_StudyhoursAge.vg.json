@@ -1,0 +1,48 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/AustralianPerformanceData.csv",
+      "format": {"type": "csv"}
+    },
+    "title": "Distribution of Students by Hours of Study per Week and Age",
+    "config": {
+      "view": {
+        "strokeWidth": 0,
+        "step": 13
+      },
+      "axis": {
+        "domain": false
+      }
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Hours of Study per Week",
+        "type": "ordinal",
+        "title": "Hours of Study per Week",
+        "sort": [
+          "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+          "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+          "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+          "31", "32", "33", "34", "35", "36", "37", "38", "39"
+        ],
+        "axis": {
+          "labelAngle": 0
+        }
+      },
+      "y": {
+        "field": "Age",
+        "type": "ordinal",
+        "title": "Age",
+        "sort": "descending" 
+      },
+      "color": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "legend": {
+          "title": "No. of Students"
+        }
+      }
+    }
+  }
+  
