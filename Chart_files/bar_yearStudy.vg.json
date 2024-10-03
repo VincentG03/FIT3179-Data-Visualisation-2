@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Title",
+    "height": 500,
+    "width": 300,
+    "data": {
+      "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/AustralianPerformanceData.csv",
+      "format": {"type": "csv"}
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Year of Study",
+        "type": "ordinal",
+        "title": "Year of Study",
+        "axis": {"labelAngle": 0}
+      },
+      "y": {
+        "aggregate": "count",
+        "field": "*",
+        "type": "quantitative",
+        "title": "Number of Students"
+      },
+      "color": {
+        "field": "Accommodation Type",
+        "type": "nominal",
+        "title": "Accommodation Type",
+        "scale": {
+          "domain": ["Dormitory", "Off-campus", "With family"],
+          "range": ["blue", "yellow", "green"]
+        }
+      }
+    }
+  }
+  
