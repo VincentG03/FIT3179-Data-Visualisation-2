@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Cost of Living by Country (2024)",
-    "width": 500,
+    "width": 700,
     "height": 400,
     "projection": {"type": "mercator"},
     "data": {
@@ -36,7 +36,17 @@
             "type": "quantitative",
             "scale": {"scheme": "blues"},
             "title": "Log10 Students per km squared (2022)"
-          }
+          },
+          "tooltip": [
+            {
+              "field": "properties.ste_name", 
+              "title": "State"  
+            },
+            {
+              "field": "Log10 Students per km squared (2022)", 
+              "title": "Log10 Students/km² (2022)" 
+            }
+          ]
         }
       }
     ]
