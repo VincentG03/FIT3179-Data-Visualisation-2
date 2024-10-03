@@ -1,0 +1,69 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 800,
+    "data": {
+      "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/AustralianPerformanceData.csv",
+      "format": {"type": "csv"}
+    },
+    "title": "Heatmap of GPA vs Family Income",
+    "config": {
+      "view": {
+        "strokeWidth": 0,
+        "step": 13
+      },
+      "axis": {
+        "domain": false
+      }
+    },
+    "transform": [
+      {
+        "calculate": "floor(datum.GPA * 2) / 2",
+        "as": "GPA_bin"
+      },
+      {
+        "calculate": "floor(datum['Family Income'] / 40000) * 40000",
+        "as": "Income_bin"
+      },
+      {
+        "aggregate": [
+          {
+            "op": "count",
+            "as": "count"
+          }
+        ],
+        "groupby": ["Income_bin", "GPA_bin"] 
+      }
+    ],
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Income_bin",
+        "type": "quantitative",
+        "title": "Family Income",
+        "scale": {
+          "domain": [0, 200000],
+          "nice": true
+        },
+        "axis": {
+          "labelAngle": 0
+        }
+      },
+      "y": {
+        "field": "GPA_bin",
+        "type": "ordinal",
+        "title": "GPA",
+        "sort": "ascending"
+      },
+      "color": {
+        "field": "count",
+        "type": "quantitative",
+        "title": "Count of Observations",
+        "scale": {
+          "domain": [0, 10000], 
+          "range": ["#f7fbff", "#08306b"] 
+        }
+      }
+    }
+  }
+  
