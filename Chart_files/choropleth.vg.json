@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Cost of Living by Country (2024)",
+    "title": "Title",
     "width": 700,
     "height": 400,
     "projection": {"type": "mercator"},
@@ -16,7 +16,7 @@
             "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/StudentsPerKmSquared.csv"
           },
           "key": "State",
-          "fields": ["Log10 Students per km squared (2022)"]
+          "fields": ["Index of students per km squared"]
         }
       }
     ],
@@ -32,19 +32,19 @@
         },
         "encoding": {
           "color": {
-            "field": "Log10 Students per km squared (2022)",
+            "field": "Index of students per km squared",
             "type": "quantitative",
             "scale": {"scheme": "blues"},
-            "title": "Log10 Students per km squared (2022)"
+            "title": "Index of students per km squared"
           },
           "tooltip": [
             {
               "field": "properties.ste_name", 
-              "title": "State"  
+              "title": "State" 
             },
             {
-              "field": "Log10 Students per km squared (2022)", 
-              "title": "Log10 Students/km² (2022)" 
+              "field": "Index of students per km squared", 
+              "title": "Index of students per km squared" 
             }
           ]
         }
