@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/StudentsGender.csv",
+      "format": {"type": "csv"}
+    },
+    "transform": [
+      {
+        "calculate": "round(datum['Number of Students'] * 100 / 1547291 * 100) / 100 + '%'",
+        "as": "Percentage"
+      }
+    ],
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {"field": "Number of Students", "type": "quantitative"},
+      "color": {
+        "field": "Gender", 
+        "type": "nominal"
+        },
+      "tooltip": [
+        {"field": "Gender", "type": "nominal"},
+        {
+          "field": "Number of Students", 
+          "type": "quantitative", 
+          "title": "Number of Students", 
+          "format": ","
+        },
+        {"field": "Percentage", "type": "nominal", "title": "Percentage"}
+      ]
+    }
+  }
+  
