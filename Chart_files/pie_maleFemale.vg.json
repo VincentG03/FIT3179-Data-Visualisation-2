@@ -16,15 +16,19 @@
     "encoding": {
       "theta": {"field": "Number of Students", "type": "quantitative"},
       "color": {
-        "field": "Gender", 
-        "type": "nominal"
-        },
+        "field": "Gender",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Male", "Female"],
+          "range": ["green", "#ff7f0e"] 
+        }
+      },
       "tooltip": [
         {"field": "Gender", "type": "nominal"},
         {
-          "field": "Number of Students", 
-          "type": "quantitative", 
-          "title": "Number of Students", 
+          "field": "Number of Students",
+          "type": "quantitative",
+          "title": "Number of Students",
           "format": ","
         },
         {"field": "Percentage", "type": "nominal", "title": "Percentage"}
