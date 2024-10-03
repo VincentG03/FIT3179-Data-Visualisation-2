@@ -1,0 +1,46 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/AustralianPerformanceData.csv",
+      "format": {"type": "csv"}
+    },
+    "title": "Grouped Bar Chart of Student Support by GPA",
+    "transform": [
+      {
+        "calculate": "datum.GPA > 3.5 ? 'GPA > 3.5' : (datum.GPA < 1.5 ? 'GPA < 1.5' : 'Other')",
+        "as": "GPA_Group"
+      },
+      {
+        "filter": "datum.GPA_Group != 'Other'"
+      },
+      {
+        "fold": ["Internet Access at Home", "Access to Academic Resources", "Tutor Support", "Scholarship"],
+        "as": ["Group", "Count"]
+      },
+      {
+        "filter": "datum.Count == 1" 
+      }
+    ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "Group",
+        "type": "ordinal",
+        "title": "Support Group"
+      },
+      "y": {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Number of Students"
+      },
+      "color": {
+        "field": "GPA_Group",
+        "type": "nominal",
+        "title": "GPA Group"
+      },
+      "xOffset": {
+        "field": "GPA_Group"
+      }
+    }
+  }
+  
