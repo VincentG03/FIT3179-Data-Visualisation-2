@@ -1,0 +1,41 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 700,
+    "height": 500,
+    "layer": [
+      // {
+      //   // Layer for graticules
+      //   "data": {
+      //     "url": "https://raw.githubusercontent.com/VincentG03/FIT3179-Data-Visualisation-2/refs/heads/main/Data_files/ne_1.topojson",
+      //     "format": {
+      //       "type": "topojson",
+      //       "feature": "ne_110m_graticules_30"
+      //     }
+      //   },
+      //   "mark": {
+      //     "type": "geoshape",
+      //     "stroke": "grey",  // Colour of graticule lines
+      //     "strokeWidth": 0.5
+      //   }
+      // },
+      {
+        // Layer for the Australia map
+        "data": {
+          "url": "https://raw.githubusercontent.com/alwaysblazing/Australia-State-TopoJson-MapChart/refs/heads/master/au-states-topo.json",
+          "format": {
+            "type": "topojson",
+            "feature": "austates"  // Feature for countries including Australia
+          }
+        },
+        "mark": {
+          "type": "geoshape",
+          "fill": "lightgrey",  // Colour of Australia
+          "stroke": "black"  // Border colour
+        }
+      }
+    ],
+    "projection": {
+      "type": "mercator"
+    }
+  }
+  
